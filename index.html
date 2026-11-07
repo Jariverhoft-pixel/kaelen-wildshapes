@@ -83,6 +83,7 @@ function renderHomeStatblock(){
  const wildAC=state.level>=3?Math.max(13+(state.level>=4?4:3),beastAC||0):(beastAC??'See source');
  root.innerHTML=`<div class="stat-kicker">ACTIVE WILD SHAPE · CR ${esc(b.cr)}</div><h2>${esc(b.name)}</h2>
  <p class="stat-intro">${esc(f.kind)}</p><div class="active-banner">AC ${wildAC} · HP ${state.hp}/${state.hpMax} · Temp HP ${state.temp}</div>
+ <div class="detail" style="margin-top:8px"><b>Movement speed</b>${esc(b.speed)}</div>
  <h3 class="stat-heading">Ability scores</h3>${f.abilityHtml}
  <h3 class="stat-heading">Skills & senses</h3>${f.fieldHtml||'<p class="note">No additional proficiencies listed.</p>'}
  ${f.sectionHtml}`;
@@ -97,7 +98,7 @@ let wildAC=state.level>=3?Math.max(13+(state.level>=4?4:3),beastAC||0):(beastAC?
 let source=(raw.match(/MM'25\s*p\d+/)||[])[0]||'Monster Manual 2025';
 $('sheet').innerHTML=`<div class="top"><div><div class="stat-kicker">CR ${esc(b.cr)} · ${esc(source)}</div><h2>${esc(b.name)}</h2></div><button id="close">✕ Close</button></div>
 <p class="stat-intro">${esc(f.kind)}</p>
-${state.active===name?`<div class="active-banner">Currently Wild Shaped · AC ${wildAC} · HP ${state.hp}/${state.hpMax} · Temp HP ${state.temp}</div>`:`<div class="detailgrid"><div class="detail"><b>Moon Druid AC</b>${wildAC}</div><div class="detail"><b>HP</b>${state.hp}/${state.hpMax}</div><div class="detail"><b>Temp HP on shift</b>${state.level>=3?state.level*3:state.level}</div></div>`}
+${state.active===name?`<div class="active-banner">Currently Wild Shaped · AC ${wildAC} · HP ${state.hp}/${state.hpMax} · Temp HP ${state.temp}</div><div class="detail" style="margin-bottom:10px"><b>Movement speed</b>${esc(b.speed)}</div>`:`<div class="detailgrid"><div class="detail"><b>Moon Druid AC</b>${wildAC}</div><div class="detail"><b>HP</b>${state.hp}/${state.hpMax}</div><div class="detail"><b>Temp HP on shift</b>${state.level>=3?state.level*3:state.level}</div></div>`}
 <h3 class="stat-heading">Beast statistics</h3>
 <div class="stat-facts" ${state.active===name?'hidden':''}><div class="stat-fact"><span class="k">Beast AC</span><span class="v">${beastAC??'—'}</span></div><div class="stat-fact"><span class="k">Beast HP</span><span class="v">${esc(beastHp)}</span><span class="tiny">Use your own HP</span></div><div class="stat-fact"><span class="k">Speed</span><span class="v" style="font-size:13px">${esc(b.speed)}</span></div></div>
 <h3 class="stat-heading">Ability scores</h3>${f.abilityHtml}
