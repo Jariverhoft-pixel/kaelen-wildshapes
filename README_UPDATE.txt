@@ -1,0 +1,1 @@
+UPDATE v6: Upload the CONTENTS of this folder to the root of your GitHub Pages repository, replacing existing files. Commit and wait for Actions > Pages deployment to finish. Reopen the installed app. Existing saved known forms use the same localStorage key. Export a backup first.
